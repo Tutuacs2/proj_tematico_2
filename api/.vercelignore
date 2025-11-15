@@ -1,0 +1,11 @@
+test
+coverage
+.env.example
+.dockerignore
+Dockerfile
+docker-compose.yaml
+README.md
+*.spec.ts
+.prettierrc
+.gitignore
+insomnia
