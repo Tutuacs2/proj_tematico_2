@@ -1,4 +1,4 @@
-FROM node:22-alpine as base
+FROM node:22-alpine as server
 
 ARG PORT=3333
 ENV PORT=${PORT}
@@ -13,6 +13,5 @@ RUN pnpm postinstall
 
 EXPOSE ${PORT}
 
-FROM base as server
 WORKDIR /usr/src/server
 CMD [ "node", "dist/main.js" ]
