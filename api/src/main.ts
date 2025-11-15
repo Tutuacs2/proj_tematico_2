@@ -34,6 +34,11 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3333);
+  const port = parseInt(env.PORT || env.BACK_PORT || '3333', 10);
+  await app.listen(port);
+  // graceful log to know which port the server is running on
+  // (Railway provides PORT at runtime; BACK_PORT is legacy in this project)
+  // eslint-disable-next-line no-console
+  console.log(`Server listening on port ${port}`);
 }
 bootstrap();
